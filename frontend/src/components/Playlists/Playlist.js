@@ -37,7 +37,7 @@ const Playlist = () => {
     return (
         <div>
             <h2>{playlist.name}</h2>
-            {playlist.isPublic && (
+            {playlist.isPublic (
                 <p>Shareable Link: {window.location.origin}/playlist/public/{playlist.shareableLink}</p>
             )}
             <ul>
