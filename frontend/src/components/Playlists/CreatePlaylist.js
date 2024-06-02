@@ -1,8 +1,8 @@
-// frontend/src/components/Playlists/CreatePlaylist.js
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import playlistService from '../../services/playlistService';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/CreatePlayList.css';
 
 const CreatePlaylist = () => {
     const { user } = useContext(AuthContext);
@@ -13,7 +13,7 @@ const CreatePlaylist = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!name) {
-            alert('Please add a name to the PlayList!!')
+            alert('Please add a name to the Playlist!!');
         } else {
             await playlistService.createPlaylist(name, isPublic, user.token);
             navigate('/');
@@ -21,23 +21,26 @@ const CreatePlaylist = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Playlist Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-            <label>
-                Public
+        <div className="create-playlist-container">
+            <form onSubmit={handleSubmit} className="create-playlist-form">
                 <input
-                    type="checkbox"
-                    checked={isPublic}
-                    onChange={(e) => setIsPublic(e.target.checked)}
+                    className="playlist-input"
+                    type="text"
+                    placeholder="Playlist Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                 />
-            </label>
-            <button type="submit">Create Playlist</button>
-        </form>
+                <label className="public-label">
+                    Public
+                    <input
+                        type="checkbox"
+                        checked={isPublic}
+                        onChange={(e) => setIsPublic(e.target.checked)}
+                    />
+                </label>
+                <button className="create-button" type="submit">Create Playlist</button>
+            </form>
+        </div>
     );
 };
 

@@ -1,0 +1,33 @@
+.playlist-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.shareable-link {
+    margin-bottom: 10px;
+}
+
+.movies-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.movie-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.movie-item img {
+    width: 120px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.movie-plot {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #777;
+}

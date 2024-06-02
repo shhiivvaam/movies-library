@@ -1,8 +1,8 @@
-// frontend/src/components/Movies/SearchMovies.js
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import movieService from '../../services/movieService';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/SearchMovies.css';
 
 const SearchMovies = () => {
     const { user } = useContext(AuthContext);
@@ -22,22 +22,26 @@ const SearchMovies = () => {
     };
 
     return (
-        <div>
+        <div className="search-movies-container">
             <form onSubmit={handleSearch}>
                 <input
+                    className="search-input"
                     type="text"
                     placeholder="Search Movies"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                 />
-                <button type="submit">Search</button>
+                <button className="search-button" type="submit">Search</button>
             </form>
-            <ul>
+            <ul className="movie-list">
                 {movies.map((movie) => (
-                    <li key={movie.imdbID}>
-                        <img src={movie.Poster} alt={movie.Title} />
-                        {movie.Title} ({movie.Year})
-                        <button onClick={() => navigate(`/movie/${movie.imdbID}`)}>Details</button>
+                    <li key={movie.imdbID} className="movie-item">
+                        <img className="movie-poster" src={movie.Poster} alt={movie.Title} />
+                        <div>
+                            <h3>{movie.Title}</h3>
+                            <p>({movie.Year})</p>
+                        </div>
+                        <button className="details-button" onClick={() => navigate(`/movie/${movie.imdbID}`)}>Details</button>
                     </li>
                 ))}
             </ul>

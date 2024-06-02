@@ -1,10 +1,10 @@
-// frontend/src/components/Playlists/Playlist.js
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import playlistService from '../../services/playlistService';
 import movieService from '../../services/movieService';
 import { useParams } from 'react-router-dom';
-import Loader from '../../components/loader/Loader'
+import Loader from '../../components/loader/Loader';
+import '../../styles/Playlist.css';
 
 const Playlist = () => {
     const { id } = useParams();
@@ -36,17 +36,17 @@ const Playlist = () => {
     if (!playlist) return <div><Loader /></div>;
 
     return (
-        <div>
+        <div className="playlist-container">
             <h2>{playlist.name}</h2>
             {playlist.isPublic && (
-                <p>Shareable Link: {window.location.origin}/playlist/public/{playlist.shareableLink}</p>
+                <p className="shareable-link">Shareable Link: {window.location.origin}/playlist/public/{playlist.shareableLink}</p>
             )}
-            <ul>
+            <ul className="movies-list">
                 {movies.map((movie) => (
-                    <li key={movie.imdbID}>
+                    <li key={movie.imdbID} className="movie-item">
                         <img src={movie.Poster} alt={movie.Title} />
                         <div>{movie.Title} ({movie.Year})</div>
-                        <p>{movie.Plot}</p>
+                        <p className="movie-plot">{movie.Plot}</p>
                     </li>
                 ))}
             </ul>

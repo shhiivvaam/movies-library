@@ -1,10 +1,10 @@
-// frontend/src/components/Movies/MovieDetails.js
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { useParams, useNavigate } from 'react-router-dom';
 import movieService from '../../services/movieService';
 import playlistService from '../../services/playlistService';
-import Loader from '../../components/loader/Loader'
+import Loader from '../../components/loader/Loader';
+import '../../styles/MovieDetails.css';
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -33,9 +33,8 @@ const MovieDetails = () => {
     const handleAddToPlaylist = async (e) => {
         e.preventDefault();
         if (!selectedPlaylist) {
-            alert('Select a playlist first!!')
+            alert('Select a playlist first!!');
         } else {
-
             await playlistService.addMovieToPlaylist(selectedPlaylist, id, user.token);
             alert('Movie added to playlist');
             navigate('/');
@@ -45,19 +44,25 @@ const MovieDetails = () => {
     if (!movie) return <div><Loader /></div>;
 
     return (
-        <div>
+        <div className="movie-details-container">
             <h2>{movie.Title} ({movie.Year})</h2>
-            <img src={movie.Poster} alt={movie.Title} />
-            <p>{movie.Plot}</p>
-            <select value={selectedPlaylist} onChange={(e) => setSelectedPlaylist(e.target.value)}>
-                <option value="">Select Playlist</option>
-                {playlists.map((playlist) => (
-                    <option key={playlist._id} value={playlist._id}>
-                        {playlist.name}
-                    </option>
-                ))}
-            </select>
-            <button onClick={handleAddToPlaylist}>Add to Playlist</button>
+            <img className="movie-poster" src={movie.Poster} alt={movie.Title} />
+            <p className="movie-plot">{movie.Plot}</p>
+            <form onSubmit={handleAddToPlaylist}>
+                <select
+                    className="playlist-select"
+                    value={selectedPlaylist}
+                    onChange={(e) => setSelectedPlaylist(e.target.value)}
+                >
+                    <option value="">Select Playlist</option>
+                    {playlists.map((playlist) => (
+                        <option key={playlist._id} value={playlist._id}>
+                            {playlist.name}
+                        </option>
+                    ))}
+                </select>
+                <button className="add-button" type="submit">Add to Playlist</button>
+            </form>
         </div>
     );
 };
