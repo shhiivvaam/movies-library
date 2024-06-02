@@ -13,7 +13,7 @@ const Home = () => {
         if (user) {
             playlistService.getPlaylists(user.token).then(setPlaylists);
         } else {
-            navigate('/signin');
+            navigate('/');
         }
     }, [user, navigate]);
 
@@ -22,10 +22,20 @@ const Home = () => {
         navigate('/signin');
     };
 
+    if (!user) {
+        return (
+            <div class="welcome-container">
+                <h1>Welcome to Movies Library.</h1>
+                <h2>Please SignIn!! 🧐</h2>
+            </div>
+
+        )
+    }
+
     return (
         <div className="home-container">
             {user && <h1>Welcome to Movies Library, {user.username}!</h1>}
-            <button className="logout-button" onClick={handleLogout}>Logout</button>
+            {/* <button className="logout-button" onClick={handleLogout}>Logout</button> */}
             <div className="actions">
                 <Link className="action-link" to="/create-playlist">Create Playlist</Link>
                 <Link className="action-link" to="/search">Search Movies</Link>

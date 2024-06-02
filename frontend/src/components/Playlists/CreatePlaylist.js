@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import playlistService from '../../services/playlistService';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-hot-toast";
 import '../../styles/CreatePlayList.css';
 
 const CreatePlaylist = () => {
@@ -13,7 +14,16 @@ const CreatePlaylist = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!name) {
-            alert('Please add a name to the Playlist!!');
+            toast('You forgot to name the PlayList!! 🫡💀',
+                {
+                    icon: '🧐',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#fff',
+                        color: '#333',
+                    },
+                }
+            );
         } else {
             await playlistService.createPlaylist(name, isPublic, user.token);
             navigate('/');

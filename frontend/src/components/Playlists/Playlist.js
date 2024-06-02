@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
+import { toast } from "react-hot-toast";
 import playlistService from '../../services/playlistService';
 import movieService from '../../services/movieService';
 import { useParams } from 'react-router-dom';
@@ -33,14 +34,38 @@ const Playlist = () => {
         fetchMovies();
     }, [id, user.token, playlist]);
 
+    function copyShareableLink() {
+        const shareableLinkElement = document.getElementById('shareable-link');
+        const tempInput = document.createElement('input');
+        tempInput.value = shareableLinkElement.textContent.trim();
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        toast.success("Link Copied to the Clipboard");
+    }
+
+
     if (!playlist) return <div><Loader /></div>;
 
     return (
         <div className="playlist-container">
             <h2>{playlist.name}</h2>
-            {playlist.isPublic && (
+            {/* {playlist.isPublic && (
                 <p className="shareable-link">Shareable Link: {window.location.origin}/playlist/public/{playlist.shareableLink}</p>
+            )} */}
+            {playlist.isPublic && (
+                <div className="shareable-link-container">
+                    <span className="shareable-link-label">Public Shareable Link :</span>
+                    <p className="shareable-link" id="shareable-link">
+                        {window.location.origin}/playlist/public/{playlist.shareableLink}
+                    </p>
+                    <button className="copy-button" onClick={copyShareableLink}>
+                        Copy Link
+                    </button>
+                </div>
             )}
+
             <ul className="movies-list">
                 {movies.map((movie) => (
                     <li key={movie.imdbID} className="movie-item">

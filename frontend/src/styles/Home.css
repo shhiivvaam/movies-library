@@ -81,3 +81,19 @@ h2 {
     font-weight: bold;
     font-size: 1.2em;
 }
+
+.welcome-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+h2 {
+    font-size: 24px;
+    color: #666;
+    margin-top: 10px;
+}

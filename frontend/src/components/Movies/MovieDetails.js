@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { toast } from "react-hot-toast";
 import { AuthContext } from '../../context/AuthContext';
 import { useParams, useNavigate } from 'react-router-dom';
 import movieService from '../../services/movieService';
@@ -33,11 +34,24 @@ const MovieDetails = () => {
     const handleAddToPlaylist = async (e) => {
         e.preventDefault();
         if (!selectedPlaylist) {
-            alert('Select a playlist first!!');
+            toast('Please select a PlayList first!! 😶‍🌫️🤷',
+                {
+                    icon: '🧐',
+                    style: {
+                        borderRadius: '10px',
+                        background: '#FFF',
+                        color: '#333',
+                    },
+                }
+            );
         } else {
-            await playlistService.addMovieToPlaylist(selectedPlaylist, id, user.token);
-            alert('Movie added to playlist');
-            navigate('/');
+            try {
+                await playlistService.addMovieToPlaylist(selectedPlaylist, id, user.token);
+                toast.success("Movie added to the PlayList ✅👍")
+                navigate('/');
+            } catch (error) {
+                toast.error("Movie already in the PlayList 🤷👀")
+            }
         }
     };
 
