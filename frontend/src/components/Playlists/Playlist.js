@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/AuthContext';
 import playlistService from '../../services/playlistService';
 import movieService from '../../services/movieService';
 import { useParams } from 'react-router-dom';
+import Loader from '../../components/loader/Loader'
 
 const Playlist = () => {
     const { id } = useParams();
@@ -32,12 +33,12 @@ const Playlist = () => {
         fetchMovies();
     }, [id, user.token, playlist]);
 
-    if (!playlist) return <div>Loading...</div>;
+    if (!playlist) return <div><Loader /></div>;
 
     return (
         <div>
             <h2>{playlist.name}</h2>
-            {playlist.isPublic (
+            {playlist.isPublic && (
                 <p>Shareable Link: {window.location.origin}/playlist/public/{playlist.shareableLink}</p>
             )}
             <ul>

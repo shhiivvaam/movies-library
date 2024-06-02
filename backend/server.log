@@ -1,3 +1,4 @@
 2024-06-02 22:16:20 [31merror[39m: Database connection error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
 2024-06-02 22:16:49 [32minfo[39m: Server running on port 5000
 2024-06-02 22:21:56 [32minfo[39m: Server running on port 5000
+2024-06-02 23:20:36 [32minfo[39m: Server running on port 5000

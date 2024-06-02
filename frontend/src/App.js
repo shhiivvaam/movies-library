@@ -9,6 +9,7 @@ import Playlist from './components/Playlists/Playlist';
 import PublicPlaylist from './components/Playlists/PublicPlaylist';
 import SearchMovies from './components/Movies/SearchMovies';
 import MovieDetails from './components/Movies/MovieDetails';
+import './App.css'
 
 const App = () => {
   return (

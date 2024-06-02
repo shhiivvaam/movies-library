@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { useParams, useNavigate } from 'react-router-dom';
 import movieService from '../../services/movieService';
 import playlistService from '../../services/playlistService';
+import Loader from '../../components/loader/Loader'
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -41,7 +42,7 @@ const MovieDetails = () => {
         }
     };
 
-    if (!movie) return <div>Loading...</div>;
+    if (!movie) return <div><Loader /></div>;
 
     return (
         <div>

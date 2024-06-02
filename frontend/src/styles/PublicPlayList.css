@@ -1,0 +1,70 @@
+/* PublicPlaylist.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.playlist-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.playlist-title {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.movie-list {
+    list-style: none;
+    padding: 0;
+}
+
+.movie-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.movie-item:hover {
+    transform: translateY(-5px);
+}
+
+.movie-poster {
+    max-width: 100px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.movie-info {
+    text-align: left;
+}
+
+.movie-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.movie-year {
+    font-size: 1em;
+    color: #555;
+}
+
+.loader-container {
+    text-align: center;
+    padding: 50px;
+}
