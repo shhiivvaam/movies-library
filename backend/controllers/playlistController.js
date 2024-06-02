@@ -7,9 +7,11 @@ exports.createPlaylist = async (req, res) => {
     const { name, isPublic } = req.body;
 
     try {
-        const shareableLink = isPublic
-            ? crypto.randomBytes(16).toString('hex')
-            : null;
+        // const shareableLink = isPublic
+        //     ? crypto.randomBytes(16).toString('hex')
+        //     : null;
+
+        const shareableLink = crypto.randomBytes(16).toString('hex')
 
         const playlist = new Playlist({
             user: req.user._id,
