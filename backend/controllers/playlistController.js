@@ -1,4 +1,3 @@
-// backend/controllers/playlistController.js
 const Playlist = require('../models/playlistModel');
 const crypto = require('crypto');
 const logger = require('../utils/logger');

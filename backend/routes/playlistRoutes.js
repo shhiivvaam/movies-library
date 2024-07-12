@@ -1,11 +1,5 @@
-// backend/routes/playlistRoutes.js
 const express = require('express');
-const {
-    createPlaylist,
-    getPlaylists,
-    addMovieToPlaylist,
-    getPublicPlaylist,
-} = require('../controllers/playlistController');
+const { createPlaylist, getPlaylists, addMovieToPlaylist, getPublicPlaylist } = require('../controllers/playlistController');
 const { protect } = require('../middleware/authMiddleware');
 
 const router = express.Router();

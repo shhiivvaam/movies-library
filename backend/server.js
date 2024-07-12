@@ -1,4 +1,3 @@
-// backend/server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -20,7 +19,7 @@ app.use(express.json());
 app.use(
     cors({
         origin: "*",
-        // origin: "http://localhost:3000",
+        origin: "http://localhost:3000",
         credentials: true,
     })
 );
@@ -30,8 +29,8 @@ app.use('/api/playlists', playlistRoutes);
 app.use('/api/movies', movieRoutes);
 
 mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
 })
     .then(() => {
         app.listen(PORT, () => {

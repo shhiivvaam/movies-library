@@ -14,3 +14,26 @@
 2024-06-03 03:54:49 [32minfo[39m: Server running on port 5000
 2024-06-03 04:17:21 [32minfo[39m: Server running on port 5000
 2024-06-03 04:18:45 [32minfo[39m: Server running on port 5000
+2024-06-14 20:31:05 [31merror[39m: Database connection error: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2024-06-14 20:32:02 [32minfo[39m: Server running on port 5000
+2024-06-19 01:47:53 [31merror[39m: Database connection error: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2024-06-19 01:48:27 [32minfo[39m: Server running on port 5000
+2024-06-19 01:56:14 [32minfo[39m: Server running on port 5000
+2024-06-19 11:17:30 [32minfo[39m: Server running on port 5000
+2024-06-19 11:42:22 [32minfo[39m: Server running on port 5000
+2024-06-19 12:47:17 [31merror[39m: Error registering user: connect ETIMEDOUT 34.239.57.21:27017
+2024-06-19 12:47:21 [31merror[39m: Error registering user: connect ETIMEDOUT 34.239.57.21:27017
+2024-06-19 12:47:51 [31merror[39m: Error registering user: connect ETIMEDOUT 34.239.57.21:27017
+2024-06-19 12:49:16 [31merror[39m: Error registering user: connect ETIMEDOUT 34.239.57.21:27017
+2024-06-19 12:50:33 [32minfo[39m: Server running on port 5000
+2024-06-19 13:26:40 [32minfo[39m: Server running on port 5000
+2024-06-19 13:32:07 [31merror[39m: Error registering user: User validation failed: username: Path `username` is required., email: Path `email` is required., password: Path `password` is required.
+2024-06-19 13:36:14 [32minfo[39m: Server running on port 5000
+2024-06-19 13:44:12 [32minfo[39m: Server running on port 5000
+2024-06-19 13:44:21 [32minfo[39m: Server running on port 5000
+2024-06-19 13:52:42 [32minfo[39m: Server running on port 5000
+2024-07-12 10:52:27 [31merror[39m: Database connection error: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2024-07-12 10:55:04 [31merror[39m: Database connection error: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2024-07-12 10:55:38 [32minfo[39m: Server running on port 5000
+2024-07-12 10:57:17 [31merror[39m: Database connection error: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2024-07-12 11:00:35 [32minfo[39m: Server running on port 5000
